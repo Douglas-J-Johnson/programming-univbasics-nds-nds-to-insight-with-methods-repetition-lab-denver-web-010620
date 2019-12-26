@@ -43,10 +43,11 @@ def total_gross(source)
   total_gross_all = 0
   directors = list_of_directors(source)
   director = ""
+  totals = directors_totals(source)
 
   for i in 0...directors.count
     director = directors[i]
-    total_gross_all = total_gross_all + gross_for_director(director)
+    total_gross_all = total_gross_all + totals[director]
   end
 
   # Write this implementation
