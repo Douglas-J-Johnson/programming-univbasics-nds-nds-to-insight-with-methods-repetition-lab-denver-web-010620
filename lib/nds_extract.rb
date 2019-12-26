@@ -3,6 +3,7 @@ require_relative './directors_database'
 require 'pp'
 
 def directors_totals(source)
+  #returns hash of {"Director Name" => gross_for_director}
   result = {}
   director_index = 0
   while director_index < source.size do
@@ -14,6 +15,7 @@ def directors_totals(source)
 end
 
 def gross_for_director(d)
+  #returns gros for a given director
   total = 0
   index = 0
 
@@ -26,6 +28,7 @@ def gross_for_director(d)
 end
 
 def list_of_directors(source)
+  #returns array of "directors"
   directors = []
 
   # Write this implementation
@@ -38,7 +41,14 @@ end
 
 def total_gross(source)
   total_gross_all = 0
-  source
+  directors = list_of_directors(source)
+  director = ""
+
+  for i in 0...directors.count
+    director = directors[i]
+    total_gross_all = total_gross_all + gross_for_director(director)
+  end
+
   # Write this implementation
   #
   # Should use methods:
